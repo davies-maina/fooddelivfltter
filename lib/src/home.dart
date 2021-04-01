@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/data/Food_data.dart';
 import 'package:food_delivery/widgets/bought_foods.dart';
 import 'package:food_delivery/widgets/food_category.dart';
 import 'package:food_delivery/widgets/home_top_info.dart';
@@ -10,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Food> _foodItems = foods;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,11 +41,23 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          Container(
-            child: BoughtFoods(),
+          Column(
+            children: _foodItems.map(_buildFoodItems).toList(),
           )
         ],
       ),
     );
   }
+}
+
+Widget _buildFoodItems(Food food) {
+  return BoughtFoods(
+    id: food.id,
+    name: food.name,
+    imagePath: food.imagePath,
+    discount: food.discount,
+    price: food.price,
+    category: food.category,
+    rating: food.rating,
+  );
 }
