@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'package:food_delivery/pages/home_page.dart';
+import 'package:food_delivery/srcreens/main_screen.dart';
 
 class App extends StatelessWidget {
   @override
@@ -8,7 +9,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Mobile Meals',
       theme: ThemeData.light(),
-      home: HomeScreen(),
+      home: MainScreen(),
     );
   }
 }
